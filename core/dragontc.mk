@@ -20,8 +20,8 @@ BLUETOOTH := libbluetooth_jni bluetooth.mapsapi bluetooth.default bluetooth.maps
 #######################
 
 # Disable modules that don't work with DragonTC. Split up by arch.
-DISABLE_DTC_arm :=
-DISABLE_DTC_arm64 :=
+DISABLE_DTC_arm := v8_mksnapshot.arm
+DISABLE_DTC_arm64 := 
 
 # Set DISABLE_DTC based on arch
 DISABLE_DTC := \
@@ -88,6 +88,9 @@ endif
 
 # Disable modules that dont work with Polly. Split up by arch.
 DISABLE_POLLY_arm := \
+  v8_mksnapshot.arm \
+  libF77blasV8 \
+  libRSSupport \
   libpng \
   libLLVMCodeGen \
   libLLVMARMCodeGen\
